@@ -454,7 +454,7 @@ def ratios_financieros(df_final, df_activo, df_patrimonio_neto):
     for trimestre in range(1, 5):
         Utilidad_Operacional = df_final.loc[(2023, trimestre), 'Utilidad_Operacional']
         Recursos_Propios = df_final.loc[(2023, trimestre), 'Recursos_Propios']
-        Creditos_Corrientes = df_final.loc[(2023, trimestre), 'Creditos_Corrientes']
+        Creditos_Corrientes = df_final.loc[(2023,trimestre), 'Creditos_Corrientes']
         Deudores_por_Ventas = df_activo.loc[(2023, trimestre), 'Deudores_por_Ventas']
         Utilidad_Neta = df_final.loc[(2023, trimestre), 'Utilidad_Neta']
         Impuesto_a_las_Ganancias = df_final.loc[(2023, trimestre), 'Impuesto_a_las_Ganancias']
@@ -464,8 +464,7 @@ def ratios_financieros(df_final, df_activo, df_patrimonio_neto):
         Capital = df_final.loc[(2023, trimestre), 'Capital']
         Pasivo_largo_Plazo = df_final.loc[(2023, trimestre), 'Pasivo_largo_Plazo']
         ventas = df_final.loc[(2023, trimestre), 'ventas']
-        Deudas_comerciales = df_final.loc[(2023, trimestre), 'Deudas_comerciales']
-        Costos_de_Producción_Variables = df_final.loc[(2023, trimestre), 'Total_Consumos_Variables']
+        Costos_de_Producción_Variables = df_final.loc[(2023, trimestre), 'Costos_de_Producción_Variables']
         Total_Costos_fijos = df_final.loc[(2023, trimestre), 'Total_Costos_fijos']
         Margen_Bruto = df_final.loc[(2023, trimestre), 'Margen_Bruto']
     
@@ -475,7 +474,7 @@ def ratios_financieros(df_final, df_activo, df_patrimonio_neto):
         Tiempo_pago_proveedores = (Deudas_comerciales * 120) / Costos_de_Producción_Variables
         Rentabilidad_neta_activo = (Utilidad_Neta) / Total_Activo       
         
-        ROI = ((Utilidad_Neta+ Impuesto_a_las_Ganancias) / Total_Activo)/100
+        ROI = ((Utilidad_Neta+ Impuesto_a_las_Ganancias) / Total_Activo)
         Punto_equilibrio = ((Gastos_financieros+Total_Costos_fijos+Impuesto_a_las_Ganancias) / (Margen_Bruto/ventas) )/1000
     
         ratios_financieros_df.loc[trimestre] = [
